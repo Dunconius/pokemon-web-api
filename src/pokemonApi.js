@@ -30,9 +30,17 @@ async function putDataOnPage(dataToDisplay){
         type2Display.textContent = "Type 2: ";
     }
 
+    // 3 line solution ↓
+    let imageContainer = document.getElementsByClassName("pokemonImage")[0];
+    let imageElement = imageContainer.getElementsByTagName("IMG")[0];
+    imageElement.src = dataToDisplay.sprites.front_default;
+    
+    // 1 line solution ↓
+    // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;
+
 }
 
-// button calls this
+// button calls this 
 async function getAndDisplayPokemonData(){
     let data = await getPokemonData();
     console.log(data);

@@ -53,6 +53,18 @@ async function putDataOnPage(dataToDisplay){
     // 1 line solution ↓
     // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;
 
+
+    let cryURL = dataToDisplay.cries.latest;
+    let pokemonAudioElement = document.querySelector(".pokemonCry audio")
+	pokemonAudioElement.src = cryURL;
+
+	let pokemonAudioPlayButton = document.querySelector(".pokemonCry");
+	pokemonAudioPlayButton.addEventListener("click", () => {
+		pokemonAudioElement.volume = 0.1;
+		pokemonAudioElement.play();
+	});
+
+
 }
 
 // button calls this 

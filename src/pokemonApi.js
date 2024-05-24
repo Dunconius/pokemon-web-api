@@ -30,10 +30,25 @@ async function putDataOnPage(dataToDisplay){
         type2Display.textContent = "Type 2: ";
     }
 
+    // Testing odds = 1:4
+    // generate random num between odds upper limit
+    // If num = 1, show shiny
+    // else, show default
+    
     // 3 line solution ↓
     let imageContainer = document.getElementsByClassName("pokemonImage")[0];
     let imageElement = imageContainer.getElementsByTagName("IMG")[0];
-    imageElement.src = dataToDisplay.sprites.front_default;
+    
+    let shinyResult = Math.floor(Math.random() * 4) + 1;
+
+    if (shinyResult == 1 ) {
+        imageElement.src = dataToDisplay.sprites.front_shiny;
+        console.log("SHINY!!!!!!!");
+    } else {
+        imageElement.src = dataToDisplay.sprites.front_default;
+        
+    }
+    
     
     // 1 line solution ↓
     // document.querySelector(".pokemonImage img").src = dataToDisplay.sprites.front_default;

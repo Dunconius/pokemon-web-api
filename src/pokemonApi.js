@@ -98,8 +98,64 @@ async function generateTeamData(){
 
 }
 
-async function showTeamData(){
+async function showTeamData(teamToDisplay){
+    let teamDisplaySection = document.getElementById("team-display");
+    teamDisplaySection.innerHTML = "";
 
+    teamToDisplay.forEach((pokemon) => {
+
+        let newPokemonCard = document.createElement("div");
+
+        // pokemon name
+        let pokemonNameTitle = document.createElement("h3");
+        pokemonNameTitle.textContent = pokemon.name;
+        newPokemonCard.appendChild(pokemonNameTitle);
+
+
+        // pokemon types
+        let type1Display = document.createElement("div");
+        let type2Display = document.createElement("div");
+
+        type1Display.textContent = "Type 1: " + pokemon.types[0].type.name;
+        // type1Display.textContent = data.types[0]["type"]["name"];
+
+        if (pokemon.types[1]){
+            // if the data includes a 2nd type, set that as well
+            type2Display.textContent = "Type 2: " + pokemon.types[1].type.name;
+        } else {
+            // if no 2nd type exists, reset the content in typ2
+            type2Display.textContent = "Type 2: ";
+        }
+
+        newPokemonCard.appendChild(type1Display);
+        newPokemonCard.appendChild(type2Display);
+
+
+
+        // pokemon cry button
+        let cryURL = pokemon.cries.latest;
+        let pokemonAudioElement = document.createElement("audio");
+        pokemonAudioElement.src = cryURL;
+
+        let pokemonAudioPlayButton = document.querySelector(".pokemonCry");
+        pokemonAudioPlayButton.textContent = "Play Sound";
+        pokemonAudioPlayButton.addEventListener("click", () => {
+            pokemonAudioElement.volume = 0.1;
+            pokemonAudioElement.play();
+        });
+
+        pokemonAudioPlayButton.appendChild(pokemonAudioElement);
+        newPokemonCard.appendChild(pokemonAudioPlayButton);
+        
+
+
+        // pokem image and shiny
+
+
+        // apply all content to page
+        teamDisplaySection.appendChild(newPokemonCard);
+
+    });
 }
 
 async function getAndShowTeamData(){

@@ -8,9 +8,9 @@
 
 ## ToDo
 
-- [ ] Cries
+- [x] Cries
 - [x] Shiny Chance
 - [ ] Team Generator
     - [ ] Select Qty to generate
 
-- fetch with headers
+- [ ] fetch with headers

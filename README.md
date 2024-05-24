@@ -10,7 +10,7 @@
 
 - [x] Cries
 - [x] Shiny Chance
-- [ ] Team Generator
+- [x] Team Generator
     - [ ] Select Qty to generate
 
 - [ ] fetch with headers
